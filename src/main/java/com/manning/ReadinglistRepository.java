@@ -9,6 +9,4 @@ import java.util.List;
  */
 public interface ReadinglistRepository extends JpaRepository<Book, Long> {
     List<Book> findByReader(String reader);
-
-    // test
 }
