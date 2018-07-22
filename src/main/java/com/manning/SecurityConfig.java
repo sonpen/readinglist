@@ -32,15 +32,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .failureUrl("/login?error=true");
     }
 
+    /*
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(new UserDetailsService() {   // 사용자 정의 UserDetailService
             @Override
             public UserDetails loadUserByUsername(String username)
                 throws UsernameNotFoundException {
+
+                System.out.println("======>" + username);
                 return readerRepository.findOne(username);
             }
 
         });
     }
+    */
 }

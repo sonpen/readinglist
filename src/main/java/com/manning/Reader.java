@@ -22,28 +22,6 @@ public class Reader implements UserDetails {
     private String fullname;
     private String password;
 
-    public String getFullname() {
-        return fullname;
-    }
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
-    }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Arrays.asList(new SimpleGrantedAuthority("ROLE_READER"));
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @Override
     public String getUsername() {
         return username;
     }
@@ -52,23 +30,45 @@ public class Reader implements UserDetails {
         this.username = username;
     }
 
+    public String getFullname() {
+        return fullname;
+    }
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    // UserDetails 메서드
+
     @Override
-    public boolean isAccountNonExpired() {
+    public Collection<? extends GrantedAuthority> getAuthorities() {        // READER 권한 부여
+        return Arrays.asList(new SimpleGrantedAuthority("ROLE_READER"));
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {      // 계정이 만료되지 않았다는 것을 반환
         return true;
     }
 
     @Override
-    public boolean isAccountNonLocked() {
+    public boolean isAccountNonLocked() {       // 계정이 잠겨 있지 않았다는 것을 반환
         return true;
     }
 
     @Override
-    public boolean isCredentialsNonExpired() {
+    public boolean isCredentialsNonExpired() {  // 자격이 유효하다는 것을 반환
         return true;
     }
 
     @Override
-    public boolean isEnabled() {
+    public boolean isEnabled() {                // 계정이 활성화되어 있다는 것을 반환
         return true;
     }
 }

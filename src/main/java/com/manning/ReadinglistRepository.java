@@ -8,5 +8,5 @@ import java.util.List;
  * Created by sonikju on 2018-06-30.
  */
 public interface ReadinglistRepository extends JpaRepository<Book, Long> {
-    List<Book> findByReader(String reader);
+    List<Book> findByReader(Reader reader);
 }
